@@ -1,0 +1,57 @@
+﻿<div class="@PrintOutColSizes() bg-dark text-white my-3 d-flex flex-column p-3">
+    @if (!String.IsNullOrWhiteSpace(IframeURL))
+    {
+        if (@Preview)
+        {
+            <iframe src="@IframeURL" target="_blank" class="w-100" style="height:400px;"></iframe>
+        }
+        else
+        {
+            <button class="btn btn-primary" @onclick="PreviewIFrame">Preview Site</button>
+        }
+
+        <hr />
+        @if (!String.IsNullOrWhiteSpace(IframeTitle))
+        {
+            <a class="mt-1" href="@IframeURL" target="_blank"><h5>@IframeTitle</h5></a>
+        }
+    }
+    <ul>
+        <li>
+            <h3 class="mt-1">@Title</h3>
+            <ul>
+                @for (int x = 0; x < ListItems.GetLength(0); x++)
+                {
+                    <li>
+                        <h5>@ListItems[@x]</h5>
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+</div>
+
+@code {
+    // Demonstrates how a parent component can supply parameters
+    [Parameter] public RenderFragment Loading { get; set; }
+    [Parameter] public string IframeTitle { get; set; } = String.Empty;
+    [Parameter] public string IframeURL { get; set; } = String.Empty;
+    [Parameter] public string Title { get; set; } = String.Empty;
+    [Parameter] public string CSSClasses { get; set; } = String.Empty;
+    public bool Preview { get; set; } = false;
+    private string PrintOutColSizes()
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        foreach (var colSize in CSSClasses.Split(' '))
+        {
+            sb.Append(colSize + " ");
+        }
+        return sb.ToString();
+    }
+
+    private void PreviewIFrame()
+    {
+        Preview = true;
+    }
+    [Parameter] public string[] ListItems { get; set; } = new string[0];
+}

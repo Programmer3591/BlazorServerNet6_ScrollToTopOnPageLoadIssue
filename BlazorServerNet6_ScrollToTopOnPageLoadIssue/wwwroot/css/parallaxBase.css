@@ -1,0 +1,61 @@
+﻿.trnDiv-1 {
+    position: relative;
+    opacity: 0.80;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .trnDiv-1 .row {
+        top: 50% !important;
+        transform: translateY(-50%);
+    }
+
+.parallax-caption {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+.parallax-div-note-border {
+    opacity: 0.80;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+.card.custom-rounded-30 {
+    border-radius: 30px !important;
+    min-width: 350px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.vw125 {
+    font-size: 1.75vw !important;
+}
+
+.parallax-div-container {
+    color: #777;
+    background-color:black;
+    text-align:center;
+    padding:50px 250px;
+    text-align: justify;
+}
+
+.opacity08{
+    opacity: .80;
+}
+
+.parallax-opaque-bg {
+    background-color: aliceblue;
+    padding-left: 1px;
+    padding-right: 1px;
+}

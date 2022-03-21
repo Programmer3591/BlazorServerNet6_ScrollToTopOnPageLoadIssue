@@ -1,0 +1,39 @@
+﻿<div class="d-flex flex-column mt-3 justify-content-center" style="height: @CalculateDivHeight();">
+    @foreach (var n in Notes)
+    {
+        <div class="my-3 text-center">
+            <span class="parallax-caption vw125">@n</span>
+        </div>
+    }
+</div>
+
+@*<div class="row" style="height: @CalculateDivHeight();">
+    <div class="col-sm-12 text-center">
+
+        @foreach (var n in Notes)
+        {
+            <div class="row justify-content-center">
+                <div class="col-sm-4 my-3">
+                    <span class="parallax-div-note-border vw125">@n</span>
+                </div>
+            </div>
+        }
+    </div>
+</div>*@
+
+@code {
+    [Parameter] public string[] Notes { get; set; } = new string[0];
+
+    private string CalculateDivHeight()
+    {
+
+        if (Notes.GetLength(0) > 3)
+        {
+            return "450px";
+        }
+        else
+        {
+            return "300px";
+        }
+    }
+}
